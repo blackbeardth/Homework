@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutSuperParent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/redButton"
+        android:layout_width="105dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#F44336"
+        android:onClick="redButtonPressed"
+        android:text="RED"
+        app:layout_constraintBottom_toTopOf="@+id/greenButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+
+    <Button
+        android:id="@+id/greenButton"
+        android:layout_width="105dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="greenButtonPressed"
+        android:text="GREEN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.474" />
+
+    <Button
+        android:id="@+id/blueButton"
+        android:layout_width="105dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="128dp"
+        android:backgroundTint="#2196F3"
+        android:onClick="blueButtonPressed"
+        android:text="BLUE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenButton"
+        app:layout_constraintVertical_bias="0.144" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
