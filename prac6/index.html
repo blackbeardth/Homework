@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <style>
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="styledParagraph">This is a paragraph that will be styled
+        by the buttons below.</p>
+    <div class="button-grid">
+        <button onclick="document.getElementById('styledParagraph').style.color='red'">Red</button>
+        <button onclick="document.getElementById('styledParagraph').style.color='green'">Green</button>
+        <button onclick="document.getElementById('styledParagraph').style.color='blue'">Blue</button>
+        <button onclick="document.getElementById('styledParagraph').style.fontSize='10px'">10</button>
+        <button onclick="document.getElementById('styledParagraph').style.fontSize='20px'">20</button>
+        <button onclick="document.getElementById('styledParagraph').style.fontSize='30px'">30</button>
+        <button onclick="document.getElementById('styledParagraph').style.fontFamily='Arial'">Arial</button>
+        <button onclick="document.getElementById('styledParagraph').style.fontFamily='MV Boli'">MV Boli</button>
+        <button onclick="document.getElementById('styledParagraph').style.fontFamily='Times New Roman'">Times New
+            Roman</button>
+    </div>
+</body>
+
+</html>

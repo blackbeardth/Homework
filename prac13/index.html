@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+    
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+    
+        #mathExpression,
+        #result {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    
+        input[type="radio"] {
+            margin: 0 10px 0 0;
+        }
+    
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Math Expression Evaluator</title>
+</head>
+
+<body>
+    <form id="calcForm">
+        <label for="mathExpression">Enter a mathematical expression:</label>
+        <input type="text" id="mathExpression" name="mathExpression">
+        <label for="square">Square:</label>
+        <input type="radio" id="square" name="option" value="square">
+        <label for="double">Double:</label>
+        <input type="radio" id="double" name="option" value="double">
+        <label for="result">Result:</label>
+        <input type="text" id="result" name="result" readonly>
+        <input type="submit" value="Calculate">
+    </form>
+    <script>
+        document.querySelector('#calcForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let expression = document.querySelector('#mathExpression').value;
+            let option = document.querySelector('input[name="option"]:checked').value;
+            let result;
+            try {
+                let value = eval(expression);
+                if (option === 'square') {
+                    result = Math.pow(value, 2);
+                } else if (option === 'double') {
+                    result = value * 2;
+                }
+                document.querySelector('#result').value = result;
+            } catch (error) {
+                alert('Invalid mathematical expression');
+            }
+        });
+    </script>
+</body>
+
+</html>
+

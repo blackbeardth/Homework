@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+
+    <script>
+        var i = 2;
+        var colorArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+        var fontSize = 14;
+
+        function printTable() {
+            var contentDiv = document.getElementById('content');
+            var table = '';
+            for (var j = 1; j <= 10; j++) {
+                table += i + ' x ' + j + ' = ' + i * j + '<br>';
+            }
+            var p = document.createElement('p');
+            p.style.color = colorArray[(i - 2) % colorArray.length];
+            p.style.fontSize = fontSize + 'px';
+            p.innerHTML = table;
+            contentDiv.appendChild(p);
+            if (i < 10) {
+                i++;
+                fontSize += 2;
+            } else {
+                clearInterval(interval);
+            }
+        }
+
+        var interval = setInterval(printTable, 5000);
+    </script>
+</body>
+
+</html>
