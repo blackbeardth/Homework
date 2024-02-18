@@ -1,7 +1,7 @@
 // WAP to implement and draw a line using
 // Digital Differential Analyzer(DDA) algorithm.
 
-// Written by Chirag Wadhwa
+// Written by Chirag Wadhwa for the University of Delhi
 
 import javax.swing.*;
 import java.awt.*;
