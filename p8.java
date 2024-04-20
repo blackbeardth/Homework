@@ -10,16 +10,18 @@ import java.io.IOException;
 
 class ThreeDTransform extends JPanel {
 	private double[][] edges;
+	private final double[][] initialEdges;
 	private int projectionChoice;
 
 	ThreeDTransform(int projectionChoice) {
-		this.edges = new double[][] {
+		this.initialEdges = new double[][] {
 			{100, 0, 0}, {100, 100, 0}, {0, 100, 0}, {0, 100, 100},
 			{0, 0, 100}, {0, 0, 0}, {100, 0, 0}, {100, 0, 100},
 			{100, 75, 100}, {75, 100, 100}, {100, 100, 75}, {100, 100, 0},
 			{100, 100, 75}, {100, 75, 100}, {75, 100, 100}, {0, 100, 100},
 			{0, 100, 0}, {0, 0, 0}, {0, 0, 100}, {100, 0, 100}
 		};
+		this.edges = initialEdges;
 		this.projectionChoice = projectionChoice;
 	}
 
@@ -30,42 +32,6 @@ class ThreeDTransform extends JPanel {
 	}
 
 	private void drawObj(Graphics g, double[][] edges) {
-		// Drawing logic for the object
-		// g.setColor(Color.BLACK);
-		// for (int i = 0; i < edges.length; i++) {
-		// 	int nextIndex = (i + 1) % edges.length;
-		// 	int x1 = (int) Math.round(edges[i][0]);
-		// 	int y1 = (int) Math.round(edges[i][1]);
-		// 	int x2 = (int) Math.round(edges[nextIndex][0]);
-		// 	int y2 = (int) Math.round(edges[nextIndex][1]);
-		// 	// Draw according to the selected projection
-		// 	switch (this.projectionChoice) {
-		// 	case 1: // Orthographic Projection on xy-plane
-		// 		g.drawLine(x1, y1, x2, y2);
-		// 		break;
-		// 	case 2: // Axonometric Projection (Isometric)
-		// 		// Apply axonometric projection
-		// 		double axoX1 = x1 + edges[i][2] * Math.cos(2.3562);
-		// 		double axoY1 = y1 + edges[i][2] * Math.sin(2.3562);
-		// 		double axoX2 = x2 + edges[nextIndex][2] * Math.cos(2.3562);
-		// 		double axoY2 = y2 + edges[nextIndex][2] * Math.sin(2.3562);
-		// 		g.drawLine((int) Math.round(axoX1), (int) Math.round(axoY1),
-		// 		           (int) Math.round(axoX2), (int) Math.round(axoY2));
-		// 		break;
-		// 	case 3: // Perspective Projection
-		// 		// Apply perspective projection
-		// 		double p = edges[i][0];
-		// 		double q = edges[i][1];
-		// 		double r = edges[i][2];
-		// 		double persX1 = p / (p * x1 + q * y1 + r);
-		// 		double persY1 = q / (p * x1 + q * y1 + r);
-		// 		double persX2 = p / (p * x2 + q * y2 + r);
-		// 		double persY2 = q / (p * x2 + q * y2 + r);
-		// 		g.drawLine((int) Math.round(persX1), (int) Math.round(persY1),
-		// 		           (int) Math.round(persX2), (int) Math.round(persY2));
-		// 		break;
-		// 	}
-		// }
 		g.setColor(Color.BLACK);
 
 		int i;
@@ -217,6 +183,10 @@ class ThreeDTransform extends JPanel {
 		edges = temp;
 	}
 
+	void resetToInitialEdges() {
+		this.edges = this.initialEdges;
+	}
+
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Projection: ");
@@ -228,7 +198,6 @@ class ThreeDTransform extends JPanel {
 
 		// Create an instance of the panel with orthographic projection
 		ThreeDTransform panel = new ThreeDTransform(projectionChoice);
-		double[][] initialEdges = panel.edges.clone(); // Store the initial edges
 		JFrame frame = new JFrame("3D Transformations");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
@@ -240,7 +209,7 @@ class ThreeDTransform extends JPanel {
 			int a, b, c, ch, theta;
 
 			// Reset figure to initial input before each transformation
-			panel.edges = initialEdges.clone();
+			panel.resetToInitialEdges();
 
 			// Testing Translation
 			System.out.println("\n3D TRANSLATION\n");
@@ -253,7 +222,7 @@ class ThreeDTransform extends JPanel {
 			waitForEnter();
 
 			// Reset figure to initial input before each transformation
-			panel.edges = initialEdges.clone();
+			panel.resetToInitialEdges();
 
 			// Testing Scaling
 			System.out.println("\n3D SCALING\n");
@@ -266,7 +235,7 @@ class ThreeDTransform extends JPanel {
 			waitForEnter();
 
 			// Reset figure to initial input before each transformation
-			panel.edges = initialEdges.clone();
+			panel.resetToInitialEdges();
 
 			// Testing Rotation
 			System.out.println("\n3D ROTATION\n");
@@ -279,7 +248,7 @@ class ThreeDTransform extends JPanel {
 			waitForEnter();
 
 			// Reset figure to initial input before each transformation
-			panel.edges = initialEdges.clone();
+			panel.resetToInitialEdges();
 
 			// Testing Reflection
 			System.out.println("\n3D REFLECTION\n");
@@ -288,6 +257,9 @@ class ThreeDTransform extends JPanel {
 			panel.reflect(ch);
 			panel.repaint();
 			waitForEnter();
+
+			// Reset figure to initial input before each transformation
+			panel.resetToInitialEdges();
 
 			// Ask if the user wants to continue
 			System.out.print("Do you want to continue? ([y]es/[n]o): ");
