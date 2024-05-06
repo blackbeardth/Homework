@@ -16,7 +16,8 @@ print_dataframe = function(df) {
   }
 }
 
-library(rattle.data)
+# library(rattle.data)
+wine <- read.csv('./data/wine.csv') 
 View(wine)
 
 wine_data <- wine[-c(1, 1)]
