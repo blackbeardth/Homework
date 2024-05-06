@@ -3,7 +3,7 @@ library(caret)
 library(e1071)
 library(class)
 
-breastcancer <- read.csv("D:/ducscode/YearIII/SemesterVI/DataMining/Practicals/data/wdbc.data", header=F)
+breastcancer <- read.csv("./data/wdbc.data", header=F)
 breastcancer
 
 breastcancer$V2 <- as.factor(breastcancer$V2)
