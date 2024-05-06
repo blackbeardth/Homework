@@ -8,7 +8,7 @@ library(e1071)
 library(class)
 library(fpc)
 
-perf <- read_excel("D:/ducscode/YearIII/SemesterVI/DataMining/Practicals/data/perfume_data.xlsx", col_names = FALSE)
+perf <- read_excel("./data/perfume_data.xlsx", col_names = FALSE)
 summary(perf)
 perf_feat <- perf
 perf_feat$...1 <- NULL
