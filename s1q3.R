@@ -1,6 +1,7 @@
 # S1 Q3
 
 # install.packages('rattle.data')
+install.packages("./data/rattle.data_1.0.2.tar.gz", repos = NULL, type = "source")
 
 standardize = function(x) {
   z <- (x - mean(x)) / sd(x)
@@ -16,8 +17,8 @@ print_dataframe = function(df) {
   }
 }
 
-# library(rattle.data)
-wine <- read.csv('./data/wine.csv') 
+library(rattle.data)
+# wine <- read.csv('./data/wine.csv') 
 View(wine)
 
 wine_data <- wine[-c(1, 1)]
