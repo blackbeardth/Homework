@@ -1,7 +1,12 @@
 # S1 Q1
 
 # Q1 i
+
+# This line reads a tabular data file named "people.txt". 
+# It assumes that the first row contains the column headers since `header = TRUE` is specified.
 people <- read.table('./data/people.txt', header = TRUE)
+
+# This line displays the contents of the people data frame in a spreadsheet-like viewer.
 View(people)
 
 # Q1 ii
