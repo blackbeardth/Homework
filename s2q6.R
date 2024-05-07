@@ -1,12 +1,12 @@
-library(readxl)
-library(ggplot2)
-library(dbscan)
-library(rpart)
-library(rpart.plot)
-library(caret)
-library(e1071)
-library(class)
-library(fpc)
+library(readxl) # for data manipulation
+library(ggplot2) # for data visualization
+library(dbscan) # for clustering
+library(rpart) # for decision tree modeling
+library(rpart.plot) # for data visualization
+library(caret) # machine learning tools
+library(e1071) # machine learning tools
+library(class) # machine learning tools
+library(fpc) # for clustering
 
 perf <- read_excel("./data/perfume_data.xlsx", col_names = FALSE)
 summary(perf)
