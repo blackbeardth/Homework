@@ -1,8 +1,8 @@
-library(rpart)
-library(rpart.plot)
-library(caret)
-library(e1071)
-library(class)
+library(rpart) # decision trees
+library(rpart.plot) # plotting decision trees
+library(caret) # for machine learning tools
+library(e1071) # for SVM
+library(class) # for various classification algorithms
 
 breastcancer <- read.csv("./data/wdbc.data", header=F)
 breastcancer
@@ -26,6 +26,7 @@ rpart.plot(dtModel)
 predictions <- predict(dtModel, dataTest, type="class")
 confusionMatrix(predictions, dataTest$V2)
 
+# calculates overall accuracy of the model
 acc_75_25 <- confusionMatrix(predictions, dataTest$V2)$overall[1] * 100
 
 ## using 66.6% train, 33.3% test
