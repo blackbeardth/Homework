@@ -1,4 +1,4 @@
-% Program to implement factorail(N, F) where F represents the factorial
+% Program to implement factorial(N, F) where F represents the factorial
 % of number N
 
 fact(0, 1).
