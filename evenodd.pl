@@ -1,4 +1,4 @@
-% program to implement two predicates eveblength(List) and
+% program to implement two predicates evenlength(List) and
 % oddlength(List) so that they are true if their argument is a list of
 % even or odd length respectively.
 
