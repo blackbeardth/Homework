@@ -1,4 +1,4 @@
-% program to implement delete+nth(N,L,R) that removes the element on Nth
+% program to implement delete_nth(N,L,R) that removes the element on Nth
 % position form a list L to generate a list R.
 
 delete(1,[_|T],T).
